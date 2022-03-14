@@ -1,12 +1,3 @@
-let calc = {
+module.exports.soma = function(x, y) {return x + y};
 
-    mult: (x, y) =>{
-        return x * y
-    },
-
-    soma: (x, y) =>{
-        return x + y
-    }
-};
-
-module.exports =  calc;
+module.exports.mult = function(x, y) {return x * y}; 

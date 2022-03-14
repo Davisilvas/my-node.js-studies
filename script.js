@@ -1,17 +1,7 @@
 let calc = require("./calc");
 
-let args = process.argv.slice(2)
+let mult = require('./calc').mult;
 
-let a = Number(args[1]);
-let b = Number(args[2]);
-let c = " ";
+console.log(mult(70, 88));
 
-if (args[0] == 's'){
-    c = calc.soma(a,b);
-}else if(args[0] =='m'){
-    c = calc.mult(a,b);
-}else{
-    c = "Opção inválida"
-};
-
-console.log(c);
+console.log(calc.soma(70, 88));
