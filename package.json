@@ -1,0 +1,22 @@
+{
+  "name": "imageeditor",
+  "version": "1.0.0",
+  "description": "resizes an image and compress it",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Davisilvas/my-node.js-studies.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Davisilvas/my-node.js-studies/issues"
+  },
+  "homepage": "https://github.com/Davisilvas/my-node.js-studies#readme",
+  "dependencies": {
+    "sharp": "^0.30.3"
+  }
+}
