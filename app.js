@@ -1,36 +1,21 @@
-const sharp = require('sharp');
-const compress_images = require('compress-images');
-
-let path = process.argv[2];
-let width = Number(process.argv[3]);
+const http = require('http');
 
 
-function resize ( inputPath, outputPath, width){
-    sharp(inputPath).resize({width: width})
-    .toFile(outputPath, (error) => {
-        if (error){
-            console.log(error);
-        }else{
-            console.log("imagem redimensionada com sucesso")
-            compress (outputPath, "./compressed/");
-        }
-    })
-}
+http.createServer((req, res) =>{
 
-function compress (pathInput, outputPath){
-    compress_images(pathInput, outputPath, { compress_force: false, statistic: true, autoupdate: true }, false,
-        { jpg: { engine: "mozjpeg", command: ["-quality", "60"] } },
-        { png: { engine: "pngquant", command: ["--quality=20-50", "-o"] } },
-        { svg: { engine: "svgo", command: "--multipass" } },
-        { gif: { engine: "gifsicle", command: ["--colors", "64", "--use-col=web"] } },
+    // res.writeHead(200, {'content-Type': 'text/plain' })
+    // res.writeHead(200, {'content-Type': 'text/html' })
+    res.writeHead(200, {'content-Type': 'application/json' })
 
-    function (error, completed, statistic) {
-    console.log("-------------");
-    console.log(error);
-    console.log(completed);
-    console.log(statistic);
-    console.log("-------------");
-    });
-}
+    // res.end('<h1>Hello World</h1>');
+    // res.end({texto: '<h1> Hello World! </h1>'});
+    res.end(JSON.stringify({texto: '<h1> Hello World! </h1>'}));
 
-resize(path, './temp/output_resize.jpeg', width);
+
+}).listen(3000, (error)=>{
+    if(error){
+        console.log(error)
+    }else{
+        console.log("servidor rodando na porta 3000")
+    }
+})
