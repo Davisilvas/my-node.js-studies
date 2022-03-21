@@ -1,15 +1,27 @@
 const http = require('http');
+const url = require('url');
+const fs = require('fs');
 
 
 http.createServer((req, res) =>{
 
-    // res.writeHead(200, {'content-Type': 'text/plain' })
-    // res.writeHead(200, {'content-Type': 'text/html' })
-    res.writeHead(200, {'content-Type': 'application/json' })
+    let path = url.parse(req.url).pathname;
 
-    // res.end('<h1>Hello World</h1>');
-    // res.end({texto: '<h1> Hello World! </h1>'});
-    res.end(JSON.stringify({texto: '<h1> Hello World! </h1>'}));
+    if (path == "" || path =="/"){
+        path = "./index.html";
+    }
+    let fileName = "." + path;
+
+    fs.readFile(fileName, (error, data) =>{
+        if (error){
+            res.writeHead(404, { "content-type": "text/html;charset=utf-8"});
+            res.end("<h1>Página não encontrada</h1>");
+        }else{
+            res.writeHead(200, {"content-type": "text/html"});
+            res.write(data);
+            res.end();
+        }
+    })
 
 
 }).listen(3000, (error)=>{
