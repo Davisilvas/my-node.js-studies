@@ -17,6 +17,10 @@
   },
   "homepage": "https://github.com/Davisilvas/my-node.js-studies#readme",
   "dependencies": {
+    "pngquant-bin": "^6.0.1",
     "sharp": "^0.30.3"
+  },
+  "devDependencies": {
+    "compress-images": "^2.0.5"
   }
 }
