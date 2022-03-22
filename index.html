@@ -7,7 +7,57 @@
     <title>Index</title>
 </head>
 <body>
-    <h1>página principal</h1>
-    <a href="./sobre.html">Clique aqui!</a>
+
+    <button onclick="get()">Get</button>
+    <button onclick="post()">Post</button>
+    <button onclick="put()">Put</button>
+    <button onclick="del()">Delete</button>
+
+    <script>
+        const url = "http://localhost:3000/index.html"
+
+        function get(){
+            fetch(url, {
+                method: "get"
+            }).then(res =>{
+                console.log(res)
+            }).catch(err =>{
+            console.log(err)
+            })
+        }
+
+        function post(){
+            fetch(url, {
+                method: "post"
+            }).then(res =>{
+                console.log(res)
+            }).catch(err =>{
+            console.log(err)
+            })
+        }
+
+        function put(){
+            fetch(url, {
+                method: "put"
+            }).then(res =>{
+                console.log(res)
+            }).catch(err =>{
+            console.log(err)
+            })
+        }
+
+        function del(){
+            fetch(url, {
+                method: "delete"
+            }).then(res =>{
+                console.log(res)
+            }).catch(err =>{
+            console.log(err)
+            })
+        }
+
+
+    </script>
+
 </body>
 </html>
